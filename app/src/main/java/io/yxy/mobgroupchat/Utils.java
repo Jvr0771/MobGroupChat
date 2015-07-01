@@ -34,9 +34,8 @@ public class Utils {
         return sharedPref.getString(KEY_SESSION_ID, null);
     }
 
-    public String getSendMessageJSON(String message) throws JSONException {
+    public String getSendMessageJSON(String message) {
         String json = null;
-
         JSONObject jObj = new JSONObject();
         try {
             jObj.put("flag", FLAG_MESSAGE);
@@ -47,6 +46,5 @@ public class Utils {
             e.printStackTrace();
         }
         return json;
-
     }
 }
