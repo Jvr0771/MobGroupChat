@@ -1,22 +1,50 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tile_bg"
+    android:orientation="vertical"
     tools:context="io.yxy.mobgroupchat.MainActivity">
+    
+    <ListView
+        android:id="@+id/list_view_messages"
+        android:layout_weight="1"
+        android:background="@null"
+        android:divider="@null"
+        android:transcriptMode="alwaysScroll"
+        android:stackFromBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp">
+    </ListView>
 
-    <TextView
-        android:id="@+id/main_text"
-        android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/ll_msg_compose"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SendButton"
-        android:id="@+id/button"
-        android:layout_below="@+id/main_text"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/input_msg"
+            android:layout_weight="2"
+            android:background="@color/bg_msg_input"
+            android:textColor="@color/text_msg_input"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_weight="1"
+            android:background="@color/bg_btn_join"
+            android:textColor="@color/white"
+            android:text="@string/btn_send"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

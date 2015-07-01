@@ -15,7 +15,7 @@ import com.codebutler.android_websockets.WebSocketClient;
 import java.net.URI;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends BaseActivity {
 
 
     private final String TAG = MainActivity.class.getSimpleName();
@@ -24,17 +24,8 @@ public class MainActivity extends ActionBarActivity {
     private TextView main_txt;
 
     private void init() {
-        main_txt = (TextView) findViewById(R.id.main_text);
-        connectGroupChat();
-        client.connect();
+
         Log.i(TAG, "initialized");
-        Button btn = (Button) findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendMessageToServer("hello");
-            }
-        });
 
     }
 
