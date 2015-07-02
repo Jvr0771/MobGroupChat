@@ -1,5 +1,6 @@
 package io.yxy.mobgroupchat;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -49,7 +50,12 @@ public class MainActivity extends BaseActivity {
     // JSON flags to identify the kind of JSON response
     private static final String TAG_SELF = "self", TAG_NEW = "new", TAG_MESSAGE = "message", TAG_EXIT = "exit";
 
+    private ProgressDialog dialog;
+
     private void init() {
+        dialog = new ProgressDialog(this);
+        dialog.show();
+
         btnSend = (Button) findViewById(R.id.btn_send);
         inputMsg = (EditText) findViewById(R.id.input_msg);
         messageListView = (ListView) findViewById(R.id.list_view_messages);
@@ -77,8 +83,8 @@ public class MainActivity extends BaseActivity {
 
         initConnection();
         client.connect();
-
         Log.i(TAG, "initialized");
+        dialog.hide();
 
     }
 
